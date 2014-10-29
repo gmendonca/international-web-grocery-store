@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  background-color:#fff;
+}
+
+header p {
+  margin: 0 auto;
+  max-width: 30rem;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 2rem auto;
+  width: 3rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 53rem;
+  width: 90%;
+}
+
+
+section {
+  border-top: 1px solid #eee;
+  text-align: center;
+  padding: 2rem 0;
+}
+section:first-of-type {
+  border-top: none;
+}
+
+.column {
+  width: 29%;
+  float: left;
+  margin: 0px;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.row {
+  background: rgba(225,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.2);
+  padding: 1rem 1rem 0 1.8rem;
+  margin-bottom: 1rem;
+  display: table;
+}
