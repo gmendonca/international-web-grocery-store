@@ -1,16 +1,67 @@
+html {
+  font-family: "Open Sans",sans-serif;
+}
+
 body {
   margin: 0;
 }
 
+
+
 header {
+  height: 60px;
+  background: none repeat scroll 0% 0% #2E3639;
+  margin: 0px;
+  padding: 0px;
+  border: medium none;
+  outline: 0px none;
+  font-size: 100%;
+  vertical-align: baseline;
+  color: #000;
+  line-height: 16px;
+}
+
+.logo {
   text-align: center;
   background-color:#fff;
 }
 
-header p {
+.logo p {
   margin: 0 auto;
   max-width: 30rem;
 }
+
+#header-menu-items {
+  margin-left: 95px;
+}
+
+#header-menu-items a:hover {
+    background-color: #B3B9BF;
+
+}
+
+.menu-item {
+  display: inline-block;
+  height: 60px;
+  padding-right: 10px;
+  float: left;
+  color: #fff;
+  position: relative;
+  z-index: auto;
+  text-decoration: none;
+}
+
+.button {
+  vertical-align: middle;
+  text-decoration: none;
+  position: relative;
+  z-index: auto;
+  cursor: pointer;
+  top: 18px;
+  padding: 3px 10px 5px;
+}
+
+
 
 hr {
   border: 0;
@@ -25,11 +76,9 @@ hr {
   width: 90%;
 }
 
-
 section {
   border-top: 1px solid #eee;
   text-align: center;
-  padding: 2rem 0;
 }
 section:first-of-type {
   border-top: none;
