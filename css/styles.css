@@ -4,6 +4,7 @@ html {
 
 body {
   margin: 0;
+
 }
 
 
@@ -24,6 +25,7 @@ header {
 .logo {
   text-align: center;
   background-color:#fff;
+ 
 }
 
 .logo p {
@@ -37,6 +39,7 @@ header {
 
 #header-menu-items a:hover {
     background-color: #B3B9BF;
+	 background-color:#fff;
 
 }
 
