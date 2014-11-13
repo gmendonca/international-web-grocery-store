@@ -55,17 +55,19 @@
 
     <section>
       <div class="container row">
+        <form action="country.jsp">
         <div class="column">
-          <a href="#"><img src="img/Brazil.png" alt="Brazil" height="160" width="160"></a>
+          <button type="submit" name="title" value="Brazil"><img src="img/Brazil.png" alt="Brazil" height="160" width="160"></button>
           <h2>Brazil</h2>
         </div>
         <div class="column">
-          <a href="#"><img src="img/China.png" alt="China" height="160" width="160"></a>
+          <button type="submit" name="title" value="China"><img src="img/China.png" alt="China" height="160" width="160"></button>
           <h2>China</h2>
         </div>
         <div class="column">
-          <a href="#"><img src="img/India.png" alt="India" height="160" width="160"></a>
+          <button type="submit" name="title" value="India"><img src="img/India.png" alt="India" height="160" width="160"></button>
           <h2>India</h2>
+        </form>
         </div>
     </section>
 
