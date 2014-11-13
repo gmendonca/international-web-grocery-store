@@ -11,7 +11,7 @@
 
     <header>
       <div id="header-menu-items">
-        <a class="menu-item" href="#">
+        <a class="menu-item" href="index.jsp">
           <span class="button">
             <span>Home</span>
           </span>
