@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+}
+
+#header-title-cart a{
+    text-decoration: none;
+    color: #000;
+}
+
+header {
+  height: 60px;
+  background: none repeat scroll 0% 0% #2E3639;
+  margin: 0px;
+  padding: 0px;
+  border: medium none;
+  outline: 0px none;
+  font-size: 100%;
+  vertical-align: baseline;
+  color: #000;
+  line-height: 16px;
+}
+
+#header-menu-items {
+  margin-left: 95px;
+}
+
+#header-menu-items a:hover {
+    background-color: #B3B9BF;
+}
+
+.menu-item {
+  display: inline-block;
+  height: 60px;
+  padding-right: 10px;
+  float: left;
+  color: #fff;
+  position: relative;
+  z-index: auto;
+  text-decoration: none;
+}
+
+.button {
+  vertical-align: middle;
+  text-decoration: none;
+  position: relative;
+  z-index: auto;
+  cursor: pointer;
+  top: 18px;
+  padding: 3px 10px 5px;
+}
+
+section {
+    background-color: #B3B9BF;
+    height: 50px;
+}
+
+section ul{
+    list-style-type: none;
+}
+
+section li {
+    display: inline;
+    padding: 1rem;
+}
+
+section a{
+    text-decoration: none;
+    color: #fff;
+}
+
+section a.stylish:hover {
+    background-color: #A9A9A9;
+    border: 7px solid #A9A9A9;
+    border-radius: 40px;
+    margin-right: 5px;
+
+}
+
+section a:visited {
+    text-decoration: none;
+}
+
+section a.normal:hover {
+    text-decoration: underline;
+}
+
+nav{
+    float: left;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,.15);
+    overflow: hidden;
+    width: 200px;
+}
+
+nav ul{
+    list-style-type: none;
+    text-align: center;
+    padding-left: 0px;
+}
+
+nav li{
+     background-color: rgb(255,255,255);
+	 border-bottom: 1px solid rgba(0,0,0,.05);
+	 color: #333331;
+	 display: block;
+	 font-size: 1.1rem;
+	 padding: 10px 0;
+	 text-decoration: none;
+	 transition: all 0.15s linear;
+}
+
+nav li:hover {
+    background-color: #B3B9BF;
+}
+
+nav a{
+    text-decoration: none;
+    color: #000;
+}
+
+aside{
+    margin-left:220px;
+}
