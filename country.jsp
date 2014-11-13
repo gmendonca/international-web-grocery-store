@@ -24,7 +24,7 @@
 	<body>
 		<header>
 			<div id="header-menu-items">
-				<a class="menu-item" href="#">
+				<a class="menu-item" href="index.jsp">
 					<span class="button">
 						<span>Home</span>
 					</span>
@@ -96,14 +96,14 @@
 							if(session.getAttribute("user") != null) {
 								u = (User)session.getAttribute("user");
 						%>
-						<a href="info.jsp" class="normal">Hi, <%= u.getUserID() %></a>
+						<a href="info.jsp" class="normal" target="iframe_a">Hi, <%= u.getUserID() %></a>
 						<%
 							}else {
 						%>
 
-						<a href="signin.jsp" class="normal">Sign In</a>
+						<a href="signin.jsp" class="normal" target="iframe_a">Sign In</a>
 						<span> or </span>
-						<a href="signin.jsp" class="normal">Create an Account</a>
+						<a href="signin.jsp" class="normal" target="iframe_a">Create an Account</a>
 						<%
 							}
 						%>

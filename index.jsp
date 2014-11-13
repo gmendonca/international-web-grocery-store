@@ -46,7 +46,7 @@
 
     <section>
       <div class="logo">
-        <h1><a href="#">Food 360</a></h1>
+        <h1><a href="#">Foodie360</a></h1>
         <h2>Find Your Food Everywhere!</h2>
         <p>International food market from everywhere, here at the United States of America.</p>
         <hr>

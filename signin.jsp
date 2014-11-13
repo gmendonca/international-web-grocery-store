@@ -9,7 +9,7 @@
 		<header>
 		<aside>
 			<h1 align="center">Sign in or Create an User</h1>
-			<form action="index.jsp">
+			<form action="country.jsp" target="_parent">
     		Username: <input type="text" name="username"><br>
     		<input id="buybutton" type="submit" VALUE="OK">
    			</form>

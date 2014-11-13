@@ -4,7 +4,11 @@ html {
 
 body {
   margin: 0;
+<<<<<<< HEAD
+
+=======
   background: transparent url("../img/wp1.jpg");
+>>>>>>> d0807aaf8e8808f3c571a41fe6cde4b21d45ce68
 }
 
 
@@ -24,6 +28,10 @@ header {
 
 .logo {
   text-align: center;
+<<<<<<< HEAD
+  background-color:#fff;
+ 
+=======
   /*background-color:#fff;*/
   color:#fff
 }
@@ -32,6 +40,7 @@ header {
     text-decoration: none;
     color: #fff;
     font-size: 30px;
+>>>>>>> d0807aaf8e8808f3c571a41fe6cde4b21d45ce68
 }
 
 .logo p {
@@ -50,6 +59,11 @@ header {
 
 #header-menu-items a:hover {
     background-color: #B3B9BF;
+<<<<<<< HEAD
+	 background-color:#fff;
+
+=======
+>>>>>>> d0807aaf8e8808f3c571a41fe6cde4b21d45ce68
 }
 
 .menu-item {
