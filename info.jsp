@@ -33,7 +33,19 @@
             <%
                 for(Order o : orders){
             %>
-                <p><%= o.showOrder() %><br>Remove: <input type="submit" name="remove" value="<%= o.getConf() %>"></p>
+                <p>
+                    <%= o.showOrder() %>
+                    <br>
+                    <%
+                        Date date = new Date();
+
+                        if(o.getCancellationDate().compareTo(date) >= 0){
+                    %>
+                    Remove: <input type="submit" name="remove" value="<%= o.getConf() %>">
+                    <%
+                        }
+                    %>
+                </p>
                 <br>
                 <br>
             <%

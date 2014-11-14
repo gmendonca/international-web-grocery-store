@@ -13,6 +13,9 @@ public class Order {
   private String cvc;
   private Double confNumber;
   private HashMap<String,Integer> products;
+  private Date purchaseDate;
+  private Date deliveryDate;
+  private Date cancellationDate;
 
   public Order(){
     confNumber = (1000000 + (Math.random() * (9999999 - 1000000)));
@@ -59,13 +62,37 @@ public class Order {
     this.products.putAll(products);
   }
 
+  public void setPurchaseDate(Date date){
+      this.purchaseDate = date;
+  }
+
+  public void setDeliveryDate(Date date){
+      this.deliveryDate = date;
+  }
+
+  public void setCancellationDate(Date date){
+      this.cancellationDate = date;
+  }
+
+  public Date getPurchaseDate(){
+      return purchaseDate;
+  }
+
+  public Date getDeliveryDate(){
+      return deliveryDate;
+  }
+
+  public Date getCancellationDate() {
+      return cancellationDate;
+  }
+
   @Override public String toString() {
-      return String.format("Order: %f<br><br>Bought with the card: %s - **** **** **** %s<br><br>Products:", 
+      return String.format("Order: %f<br><br>Bought with the card: %s - **** **** **** %s<br><br>Products:",
         this.confNumber ,this.name, this.card.substring(this.card.length() - 4));
   }
 
   public String showOrder(){
-    return String.format("Order: %f<br>Bought with the card: %s - **** **** **** %s<br><br>", 
+    return String.format("Order: %f<br>Bought with the card: %s - **** **** **** %s<br><br>",
         this.confNumber ,this.name, this.card.substring(this.card.length() - 4));
   }
 }

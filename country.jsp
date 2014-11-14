@@ -119,7 +119,6 @@
 		</nav>
 
 		<aside>
-			<h1 align="center">Deals</h1>
 			<iframe src="welcome.jsp" name="iframe_a"></iframe>
 		</aside>
 	</body>

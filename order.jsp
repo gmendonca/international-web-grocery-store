@@ -20,8 +20,6 @@
     o.setProducts(c.getProducts());
     User u = new User("Guest");
     if(session.getAttribute("user") != null) u = (User)session.getAttribute("user");
-    u.setOrder(o);
-    session.setAttribute("user", u);
 
 %>
 
@@ -32,6 +30,7 @@
             <h1 align="center">Confirmation Page</h1>
             <h3><%= u.getUserID() %>, thank you for you purchase on <%= date %>!</h3>
             <%
+                o.setPurchaseDate(date);
                 String orderstring = o.toString();
             %>
             <p><%= orderstring %>
@@ -52,11 +51,21 @@
                 Calendar calendar = Calendar.getInstance();
                 calendar.add(Calendar.DAY_OF_MONTH, 14);
                 date = calendar.getTime();
-
+                o.setDeliveryDate(date);
                 SimpleDateFormat s = new SimpleDateFormat("MM/dd/yy");
             %>
                     <br><br>Delivery Date: <%= s.format(date) %>
             </p>
+            <%
+                int days = 5;
+                for(int j = 0; j < days;){
+                   calendar.add(Calendar.DAY_OF_MONTH, -1);
+                   if(calendar.get(Calendar.DAY_OF_WEEK) <= 6 && calendar.get(Calendar.DAY_OF_WEEK) >= 2)
+                      j++;
+                }
+                date = calendar.getTime();
+                o.setCancellationDate(date);
+            %>
             <form action="welcome.jsp">
                 <input type="submit" value="OK">
             </form>
@@ -66,4 +75,8 @@
             %>
         </aside>
     </body>
+<%
+    u.setOrder(o);
+    session.setAttribute("user", u);
+%>
 <html>
