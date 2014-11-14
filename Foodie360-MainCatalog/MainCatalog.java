@@ -4,7 +4,7 @@ import java.lang.*;
 public class MainCatalog implements Serializable{
 
 	private HashMap<String,HashMap<String,String[][]>> catalog;
-	public void itemfile(){
+	public void setHashMap(){
 
 		//creating hashmap to store the products
 		 catalog = new HashMap<String,HashMap<String,String[][]>>();
@@ -96,5 +96,9 @@ public class MainCatalog implements Serializable{
                           return;
                     }
        
+	}
+
+	public HashMap<String,HashMap<String,String[][]>> getHashMap(){
+		return catalog;
 	}
 }
