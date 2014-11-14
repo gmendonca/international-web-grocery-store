@@ -1,11 +1,13 @@
 import java.util.*;
 import java.io.*;
 import java.lang.*;
-public class MainCatalog{
-	public static void main(String[]args)throws IOException{
+public class MainCatalog implements Serializable{
+
+	private HashMap<String,HashMap<String,String[][]>> catalog;
+	public void itemfile(){
 
 		//creating hashmap to store the products
-		HashMap<String,HashMap<String,String[][]>> catalog = new HashMap<String,HashMap<String,String[][]>>();
+		 catalog = new HashMap<String,HashMap<String,String[][]>>();
 
 		//create a nested hashmap to store items based on categories
 		HashMap<String,String[][]> items1 = new HashMap<String,String[][]>();
@@ -80,8 +82,19 @@ public class MainCatalog{
 	    //add the nested hashmap into the main hashmap based on the countries
 	    catalog.put("india",items3);
 
-
-    //  System.out.println(catalog.get("china"));
+	     try
+                   {
+                          FileOutputStream fos = new FileOutputStream("itemsfile.ser");
+                          ObjectOutputStream oos = new ObjectOutputStream(fos);
+                          oos.writeObject(catalog);
+                          oos.close();
+                          fos.close();
+                          System.out.printf("HashMap Saved in file");
+                   }catch(IOException ioe)
+                    {
+                          ioe.printStackTrace();
+                          return;
+                    }
        
 	}
 }
