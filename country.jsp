@@ -59,7 +59,7 @@
 											<h1><a href="country.jsp"><%= title %></a></h1>
 									</td>
 									<td width="25%">
-											<a href="cart.jsp"><img src="img/cart.jpg" alt="cart" width="80" height="80"/></a>
+											<a href="cart.jsp" target="iframe_a"><img src="img/cart.jpg" alt="cart" width="80" height="80"/></a>
 									</td>
 							</tr>
 					</table>

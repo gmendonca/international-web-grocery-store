@@ -57,7 +57,7 @@
             %>
                     <br><br>Delivery Date: <%= s.format(date) %>
             </p>
-            <form action="index.jsp">
+            <form action="welcome.jsp">
                 <input type="submit" value="OK">
             </form>
             <%
