@@ -24,36 +24,32 @@
 	<body>
 		<header>
 			<div id="header-menu-items">
-				<a class="menu-item" href="index.jsp">
-					<span class="button">
-						<span>Home</span>
-					</span>
-				</a>
-				<a class="menu-item" href="#">
-					<span class="button">
-						<span>Brazil</span>
-					</span>
-				</a>
-				<a class="menu-item" href="#">
-					<span class="button">
-						<span>China</span>
-					</span>
-				</a>
-				<a class="menu-item" href="#">
-					<span class="button">
-						<span>India</span>
-					</span>
-				</a>
-				<a class="menu-item" href="#">
-					<span class="button">
-						<span>About us</span>
-					</span>
-				</a>
-				<a class="menu-item" href="#">
-					<span class="button">
-						<span>Contact us</span>
-					</span>
-				</a>
+				<form action="index.jsp">
+					<button type="submit" class="menu-item">
+					Home
+					</button>
+				</form>
+				<form action="country.jsp">
+					<button type="submit" name="title" value="Brazil" class="menu-item">
+					Brazil
+					</button>
+					<button type="submit" name="title" value="China" class="menu-item">
+					China
+					</button>
+					<button type="submit" name="title" value="India" class="menu-item">
+					India
+					</button>
+				</form>
+				<form action="#">
+					<button type="submit" class="menu-item">
+					About us
+					</button>
+				</form>
+				<form action="#">
+					<button type="submit" class="menu-item">
+					Contact us
+					</button>
+				</form>
 			</div>
 		</header>
 		<div id="header-title-cart">
@@ -124,7 +120,7 @@
 
 		<aside>
 			<h1 align="center">Deals</h1>
-			<iframe width="1000px" height="800px" margin: 0 src="welcomepage.html" name="iframe_a"></iframe>
+			<iframe width="1000px" height="800px" margin: 0 src="welcome.jsp" name="iframe_a"></iframe>
 		</aside>
 	</body>
 <html>

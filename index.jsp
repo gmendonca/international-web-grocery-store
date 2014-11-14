@@ -11,36 +11,32 @@
 
     <header>
       <div id="header-menu-items">
-        <a class="menu-item" href="index.jsp">
-          <span class="button">
-            <span>Home</span>
-          </span>
-        </a>
-        <a class="menu-item" href="#">
-          <span class="button">
-            <span>Brazil</span>
-          </span>
-        </a>
-        <a class="menu-item" href="#">
-          <span class="button">
-            <span>China</span>
-          </span>
-        </a>
-        <a class="menu-item" href="#">
-          <span class="button">
-            <span>India</span>
-          </span>
-        </a>
-        <a class="menu-item" href="#">
-          <span class="button">
-            <span>About us</span>
-          </span>
-        </a>
-        <a class="menu-item" href="#">
-          <span class="button">
-            <span>Contact us</span>
-          </span>
-        </a>
+        <form action="index.jsp">
+            <button type="submit" class="menu-item">
+              Home
+            </button>
+        </form>
+        <form action="country.jsp">
+            <button type="submit" name="title" value="Brazil" class="menu-item">
+              Brazil
+            </button>
+            <button type="submit" name="title" value="China" class="menu-item">
+              China
+            </button>
+            <button type="submit" name="title" value="India" class="menu-item">
+              India
+            </button>
+        </form>
+        <form action="#">
+            <button type="submit" class="menu-item">
+              About us
+            </button>
+        </form>
+        <form action="#">
+            <button type="submit" class="menu-item">
+              Contact us
+            </button>
+        </form>
       </div>
     </header>
 
