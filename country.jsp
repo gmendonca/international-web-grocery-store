@@ -120,7 +120,7 @@
 
 		<aside>
 			<h1 align="center">Deals</h1>
-			<iframe width="1000px" height="800px" margin: 0 src="welcome.jsp" name="iframe_a"></iframe>
+			<iframe src="welcome.jsp" name="iframe_a"></iframe>
 		</aside>
 	</body>
 <html>
