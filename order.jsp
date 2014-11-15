@@ -6,6 +6,8 @@
 <%@ page import="beans.Cart" %>
 <%@ page import="beans.Order" %>
 <%@ page import="beans.User" %>
+<%@ page import="beans.Clients" %>
+
 <%
     Cart c = new Cart();
     if(session.getAttribute("cart") != null) c = (Cart)session.getAttribute("cart");
@@ -77,6 +79,9 @@
     </body>
 <%
     u.setOrder(o);
+    Clients clients = new Clients();
+    clients.setNewClient(u);
     session.setAttribute("user", u);
+    clients.serializeThis();
 %>
 <html>

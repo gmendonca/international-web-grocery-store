@@ -2,8 +2,9 @@ package beans;
 
 import java.util.*;
 import java.text.*;
+import java.io.*;
 
-public class Order {
+public class Order implements Serializable{
   private String first;
   private String last;
   private String address;

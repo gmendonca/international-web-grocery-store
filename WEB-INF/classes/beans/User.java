@@ -6,8 +6,8 @@ import java.io.*;
 
 public class User implements Serializable {
 	private String userID;
-	private ArrayList<Order> orders;
-  
+	private transient ArrayList<Order> orders;
+
 
 	public User(String userID){
 		this.userID = userID;
@@ -33,8 +33,18 @@ public class User implements Serializable {
 				remove = order;
 				break;
 			}
-				
+
 		}
 		if(remove != null) orders.remove(remove);
+	}
+
+	private void writeObject(ObjectOutputStream out) throws IOException {
+		out.defaultWriteObject();
+		out.writeObject(this.orders);
+	}
+
+	private void readObject(ObjectInputStream in) throws IOException,ClassNotFoundException {
+		in.defaultReadObject();
+		this.orders = (ArrayList<Order>)in.readObject();
 	}
 }
