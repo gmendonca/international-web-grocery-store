@@ -5,7 +5,7 @@
 
 <%
     HashMap<String,HashMap<String,String[][]>> catalogList;
-    
+
     MainCatalog cl = new MainCatalog();
     cl.setHashMap();
     catalogList = cl.getHashMap();
@@ -13,7 +13,7 @@
 
     request.setAttribute("catalogList", catalogList);
 
-    String title = request.getParameter("product");
+    //String title = request.getParameter("product");
 
 %>
 
@@ -32,17 +32,25 @@
             <%
                 Set set = catalogList.entrySet();
                 Iterator i = set.iterator();
-                String prod;
+                String[][] prod;
                 while(i.hasNext()) {
                    Map.Entry me = (Map.Entry)i.next();
-                   String comp = (String)me.getValue();
-                   if(title.compareTo(comp) == 0){
-                       prod = (String)me.getKey();
-            %>
-                    <p>Buy: <input type="submit" name="product" value="<%= prod %>"></p>
-            <%
-                    }
-                }
+                   HashMap<String,String[][]> comp = (HashMap<String,String[][]>)me.getValue();
+                   Set set2 = comp.entrySet();
+                   Iterator i2 = set.iterator();
+                       while(i2.hasNext()) {
+                          Map.Entry me2 = (Map.Entry)i2.next();
+                           String comp2 = (String)me2.getKey();
+
+                                       if(title.compareTo(comp2) == 0){
+                                       prod = (String[][])me.getValue();
+                    %>
+                            <p>Buy: <input type="submit" name="product" value="<%= prod %>"></p>
+                    <%
+
+                                            }
+                         }
+                 }
             %>
             </form>
         </aside>

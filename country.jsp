@@ -29,8 +29,10 @@
 
 		if(clientsHM == null) {
 			u = new User(name);
-		} else {
+		} else if(clientsHM.get(name) != null){
 			u = clientsHM.get(name);
+		} else{
+			u = new User(name);
 		}
 
 		session.setAttribute("user", u);
