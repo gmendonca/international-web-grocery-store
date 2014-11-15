@@ -1,30 +1,15 @@
 <!DOCTYPE html>
 <%@ page import="java.util.*"%>
 <%@ page import="beans.User" %>
+<%@ page import= "beans.MainCatalog"%>
 
 <%
-    Map<String, String> catalogList = new HashMap<String, String>();
-    catalogList.put("Droid MAXX", "Phones");
-    catalogList.put("Moto X", "Phones");
-    catalogList.put("iPhone 5S", "Phones");
-    catalogList.put("iPhone 5C", "Phones");
-    catalogList.put("Galaxy S3", "Phones");
-    catalogList.put("Galaxy S4", "Phones");
+    HashMap<String,HashMap<String,String[][]>> catalogList;
+    
+    MainCatalog cl = new MainCatalog();
+    cl.setHashMap();
+    catalogList = cl.getHashMap();
 
-    catalogList.put("Kindle", "Tablets");
-    catalogList.put("Nexus", "Tablets");
-    catalogList.put("Surface", "Tablets");
-    catalogList.put("Galaxy", "Tablets");
-    catalogList.put("iPad", "Tablets");
-
-    catalogList.put("MacBook", "Laptop");
-    catalogList.put("Asus", "Laptop");
-    catalogList.put("Sony", "Laptop");
-    catalogList.put("Lenovo", "Laptop");
-
-    catalogList.put("Panasonic", "TV");
-    catalogList.put("Samsung", "TV");
-    catalogList.put("Sony", "TV");
 
     request.setAttribute("catalogList", catalogList);
 
