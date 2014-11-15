@@ -4,6 +4,8 @@
 <%@ page import="javax.servlet.http.*"%>
 <%@ page import="beans.User" %>
 <%@ page import="beans.Clients" %>
+<%@ page import="beans.MainCatalog" %>
+<%@ page import="beans.ProductData" %>
 
 <%
 	String title = "Country";
@@ -126,10 +128,29 @@
 		<nav>
 			<ul>
 				<form action="catalog.jsp" target="iframe_a">
-				<li><input type="submit" name="product" value="Phones"></li>
-				<li><input type="submit" name="product" value="Tablets"></li>
-				<li><input type="submit" name="product" value="Laptop"></li>
-				<li><input type="submit" name="product" value="TV"></li>
+			<%
+				HashMap<String, ProductData> map = null;
+				try{
+					MainCatalog cata = new MainCatalog();
+					cata.makecatalog();
+					map = cata.showcatalog();
+				} catch (Exception e){ }
+
+				if(map != null){
+				Set set = map.entrySet();
+				Iterator i = set.iterator();
+				ProductData prod = null;
+				while(i.hasNext()) {
+					Map.Entry me = (Map.Entry)i.next();
+					prod = (ProductData)me.getValue();
+					if(prod.getCountry().compareTo(title) == 0){
+			%>
+				<li><input type="submit" name="product" value="<%= prod.getCategory() %>"></li>
+			<%
+					}
+				}
+			}
+			%>
 				</form>
 			</ul>
 		</nav>

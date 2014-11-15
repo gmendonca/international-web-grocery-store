@@ -2,7 +2,7 @@ package beans;
 
 import java.io.*;
 import java.util.*;
-public class ProductData{
+public class ProductData implements Serializable{
 
 	private String prodid;
 	private String category;
@@ -11,8 +11,6 @@ public class ProductData{
 	private double price;
 
 	public ProductData(String prodid, String category, String description, String country, double cost){
-
-
 		setProdId(prodid);
 		setCategory(category);
 		setDecription(description);
@@ -68,6 +66,6 @@ public class ProductData{
 		return price;
 	}
 
-	
-	
+
+
 }
