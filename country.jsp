@@ -3,6 +3,7 @@
 <%@ page import="javax.servlet.*"%>
 <%@ page import="javax.servlet.http.*"%>
 <%@ page import="beans.User" %>
+<%@ page import="beans.Clients" %>
 
 <%
 	String title = "Country";
@@ -14,6 +15,27 @@
 	if(session.getAttribute("title") != null){
 		title = (String)session.getAttribute("title");
 	}
+
+	Clients clients = new Clients();
+	HashMap<String,User> clientsHM = null;
+
+	String name = "User";
+	User u;
+	if(request.getParameter("username") != null){
+		name = request.getParameter("username");
+		try{
+			clientsHM = clients.deserializeThis();
+		}catch (Exception e){ }
+
+		if(clientsHM == null) {
+			u = new User(name);
+		} else {
+			u = clientsHM.get(name);
+		}
+
+		session.setAttribute("user", u);
+	}
+
 %>
 
 <html>
@@ -81,14 +103,6 @@
 					</td>
 					<td width="30%">
 						<%
-							String name = "User";
-							User u;
-							if(request.getParameter("username") != null){
-								name = request.getParameter("username");
-								u = new User(name);
-								session.setAttribute("user", u);
-							}
-
 							if(session.getAttribute("user") != null) {
 								u = (User)session.getAttribute("user");
 						%>
