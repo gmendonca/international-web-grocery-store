@@ -143,3 +143,26 @@ iframe{
     margin:0;
     border:0;
 }
+
+.popupBox {
+  position: absolute;
+  margin-left: 70px;
+}
+
+.popupCell {
+   background-color: #fffafa;
+}
+
+.popupCell:hover {
+  background-color: #f5ebe9;
+}
+
+.popupItem {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.popupItem:hover {
+  text-decoration: underline;
+}

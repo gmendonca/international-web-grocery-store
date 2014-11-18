@@ -46,8 +46,9 @@
 	<head>
 		<title><%= title %></title>
 		<link rel="stylesheet" type="text/css" href="css/styles-country.css">
+		<script type="text/javascript" src="javascript/javascript.js"></script>
 	</head>
-	<body>
+	<body onload="init()">
 		<header>
 			<div id="header-menu-items">
 				<form action="index.jsp">
@@ -102,8 +103,25 @@
 						</ul>
 					</td>
 					<td width="30%">
-						<input type="text" name="search">
-						<a href="#" class="stylish">Search it</a>
+						<form name="autofillform" action="autocomplete">
+						<table border="0" cellpadding="5">
+							<tbody>
+							<tr>
+								<td><strong>Search:</strong></td>
+											<td>
+												<input type="text" size="40"
+												id="complete-field" autocomplete="off"
+												onkeyup="doCompletion()">
+											</td>
+							</tr>
+							<tr>
+								<td id="auto-row" colspan="2">
+									<table id="complete-table" class="popupBox"></table>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+						</form>
 					</td>
 					<td width="30%">
 						<%

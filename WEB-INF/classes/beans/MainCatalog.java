@@ -24,14 +24,17 @@ public class MainCatalog{
       fos.close();
 	}
 
-	public HashMap<String,ProductData> showcatalog() throws IOException, ClassNotFoundException{
+	public HashMap<String,ProductData> showcatalog() {
 
 		HashMap<String,ProductData> map = null;
-		FileInputStream fis = new FileInputStream("itemsfile.ser");
-		ObjectInputStream ois = new ObjectInputStream(fis);
-		map = (HashMap<String,ProductData>) ois.readObject();
-		ois.close();
-		fis.close();
+		try{
+			FileInputStream fis = new FileInputStream("itemsfile.ser");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			map = (HashMap<String,ProductData>) ois.readObject();
+			ois.close();
+			fis.close();
+		} catch (Exception e) { }
+
 		return map;
 	}
 
