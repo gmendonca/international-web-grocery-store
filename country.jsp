@@ -158,14 +158,19 @@
 				Set set = map.entrySet();
 				Iterator i = set.iterator();
 				ProductData prod = null;
+				ArrayList uniqueValues = new ArrayList();
 				while(i.hasNext()) {
 					Map.Entry me = (Map.Entry)i.next();
 					prod = (ProductData)me.getValue();
 					if(prod.getCountry().compareTo(title) == 0){
-			%>
-				<li><input type="submit" name="product" value="<%= prod.getCategory() %>"></li>
-			<%
+						uniqueValues.add(prod.getCategory());
 					}
+				}
+
+				for(Object pcategory : new HashSet(uniqueValues)) {
+			%>
+				<li><input type="submit" name="product" value="<%= (String)pcategory %>"></li>
+			<%
 				}
 			}
 			%>
