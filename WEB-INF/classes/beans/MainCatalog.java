@@ -1,9 +1,9 @@
-package beans;
+﻿package beans;
 
 import java.io.*;
 import java.util.*;
 import java.lang.*;
-public class MainCatalog{
+public class MainCatalog implements serializable{
 
 	public void makecatalog() throws IOException{
 
