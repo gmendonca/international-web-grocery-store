@@ -2,12 +2,18 @@
 <%@ page import="java.util.*"%>
 <%@ page import="beans.User" %>
 <%@ page import= "beans.MainCatalog"%>
+<%@ page import= "beans.ProductData"%>
+
 
 <%
-    HashMap<String,HashMap<String,String[][]>> catalogList;
+    HashMap<String,HashMap<String,ProductData>> catalogList;
 
     MainCatalog cl = new MainCatalog();
-    cl.setHashMap();
+    try{
+          cl.makecatalog();
+        }
+        catch(Exception e){}
+
     catalogList = cl.getHashMap();
 
 
