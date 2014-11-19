@@ -15,11 +15,12 @@
 	}
 
 	if(session.getAttribute("title") != null){
-		title = (String)session.getAttribute("title");
+		//title = (String)session.getAttribute("title");
 	}
+	MainCatalog maincatalog = new MainCatalog();
 
-	Clients clients = new Clients();
-	HashMap<String,User> clientsHM = null;
+	//Clients clients = new Clients();
+	//HashMap<String,User> clientsHM = null;
 
 	String name = "User";
 	User u;
