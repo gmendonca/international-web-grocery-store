@@ -2,26 +2,27 @@
 <%@ page import="java.util.*"%>
 <%@ page import="beans.User" %>
 <%@ page import= "beans.MainCatalog"%>
+<%@ page import= "beans.ProductData"%>
+
 
 <%
-    HashMap<String,HashMap<String,String[][]>> catalogList;
+    HashMap<String,ProductData> catalogList;
 
     MainCatalog cl = new MainCatalog();
-    cl.setHashMap();
-    catalogList = cl.getHashMap();
+    try{
+          cl.makecatalog();
+        }
+        catch(Exception e){}
+
+    catalogList = cl.showcatalog();
 
 
     request.setAttribute("catalogList", catalogList);
 
-    //String title = request.getParameter("product");
+    String product = request.getParameter("product");
 
 %>
 
-<jsp:useBean id="entry" class="beans.StringBean" />
-<jsp:setProperty
-    name="entry"
-    property="product"
-    value='<%= request.getParameter("product") %>'/>
 
 <html>
     <head>
@@ -30,27 +31,22 @@
         <aside>
             <form action="cart.jsp">
             <%
+                String country = (String)session.getAttribute("title");
                 Set set = catalogList.entrySet();
                 Iterator i = set.iterator();
-                String[][] prod;
+                ProductData pd;
                 while(i.hasNext()) {
                    Map.Entry me = (Map.Entry)i.next();
-                   HashMap<String,String[][]> comp = (HashMap<String,String[][]>)me.getValue();
-                   Set set2 = comp.entrySet();
-                   Iterator i2 = set.iterator();
-                       while(i2.hasNext()) {
-                          Map.Entry me2 = (Map.Entry)i2.next();
-                           String comp2 = (String)me2.getKey();
-
-                                       if(title.compareTo(comp2) == 0){
-                                       prod = (String[][])me.getValue();
+                   pd = (ProductData)me.getValue();
+                   if((product.compareTo(pd.getCategory())==0)&&(country.compareTo(pd.getCountry())==0)){
+                                       
                     %>
-                            <p>Buy: <input type="submit" name="product" value="<%= prod %>"></p>
+                            <p>Buy: <input type="submit" name="product" value="<%= pd.getDescription()%>">&nbsp&nbsp$<%= pd.getPrice()%></p>
                     <%
 
                                             }
                          }
-                 }
+                 
             %>
             </form>
         </aside>

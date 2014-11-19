@@ -18,6 +18,7 @@
 	if(session.getAttribute("title") != null){
 		title = (String)session.getAttribute("title");
 	}
+	MainCatalog maincatalog = new MainCatalog();
 
 	Clients clients = new Clients();
 	HashMap<String,User> clientsHM = null;
