@@ -6,7 +6,7 @@
 <%@ page import="beans.Order" %>
 
 <%
-    User u = new User("Teste");
+    User u = new User("Teste","pass");
     if(session.getAttribute("user") != null) u = (User)session.getAttribute("user");
 
     String order;

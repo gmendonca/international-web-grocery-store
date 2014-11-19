@@ -6,6 +6,7 @@
 <%@ page import="beans.Clients" %>
 <%@ page import="beans.MainCatalog" %>
 <%@ page import="beans.ProductData" %>
+<%@ page import="beans.Clients" %>
 
 <%
 	String title = "Country";
@@ -23,7 +24,7 @@
 
 	String name = "User";
 	String password = "pass";
-	User u;
+	User u = null;
 	if(request.getParameter("username") != null){
 		name = request.getParameter("username");
 		password = request.getParameter("password");
@@ -35,6 +36,9 @@
 			u = new User(name, password);
 		} else if(clientsHM.get(name) != null){
 			u = clientsHM.get(name);
+			if(u.getPassword().compareTo(password) != 0) {
+				response.sendRedirect("signin.jsp?username=" + name);
+			}
 		} else{
 			u = new User(name, password);
 		}
@@ -135,9 +139,9 @@
 							}else {
 						%>
 
-						<a href="signin.jsp" class="normal" target="iframe_a">Sign In</a>
+						<a href="signin.jsp" class="normal">Sign In</a>
 						<span> or </span>
-						<a href="signin.jsp" class="normal" target="iframe_a">Create an Account</a>
+						<a href="signin.jsp" class="normal">Create an Account</a>
 						<%
 							}
 						%>
@@ -184,4 +188,11 @@
 			<iframe src="welcome.jsp" name="iframe_a"></iframe>
 		</aside>
 	</body>
+	<%
+		if(u != null) {
+			clients.setNewClient(u);
+			session.setAttribute("user", u);
+			clients.serializeThis();
+		}
+	%>
 <html>

@@ -20,7 +20,7 @@
     o.setDate(request.getParameter("expiration"));
     o.setCvc(request.getParameter("cvc"));
     o.setProducts(c.getProducts());
-    User u = new User("Guest");
+    User u = new User("Guest","pass");
     if(session.getAttribute("user") != null) u = (User)session.getAttribute("user");
 
 %>
