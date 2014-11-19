@@ -41,7 +41,7 @@
                    if((product.compareTo(pd.getCategory())==0)&&(country.compareTo(pd.getCountry())==0)){
                                        
                     %>
-                            <p>Buy: <input type="submit" name="product" value="<%= pd.getDescription()%>"></p>
+                            <p>Buy: <input type="submit" name="product" value="<%= pd.getDescription()%>">&nbsp&nbsp$<%= pd.getPrice()%></p>
                     <%
 
                                             }
