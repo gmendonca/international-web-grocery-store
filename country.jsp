@@ -47,8 +47,9 @@
 	<head>
 		<title><%= title %></title>
 		<link rel="stylesheet" type="text/css" href="css/styles-country.css">
+		<script type="text/javascript" src="javascript/javascript.js"></script>
 	</head>
-	<body>
+	<body onload="init()">
 		<header>
 			<div id="header-menu-items">
 				<form action="index.jsp">
@@ -103,8 +104,25 @@
 						</ul>
 					</td>
 					<td width="30%">
-						<input type="text" name="search">
-						<a href="#" class="stylish">Search it</a>
+						<form name="autofillform" action="autocomplete">
+						<table border="0" cellpadding="5">
+							<tbody>
+							<tr>
+								<td><strong>Search:</strong></td>
+											<td>
+												<input type="text" size="40"
+												id="complete-field" autocomplete="off"
+												onkeyup="doCompletion()">
+											</td>
+							</tr>
+							<tr>
+								<td id="auto-row" colspan="2">
+									<table id="complete-table" class="popupBox"></table>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+						</form>
 					</td>
 					<td width="30%">
 						<%
@@ -141,14 +159,19 @@
 				Set set = map.entrySet();
 				Iterator i = set.iterator();
 				ProductData prod = null;
+				ArrayList uniqueValues = new ArrayList();
 				while(i.hasNext()) {
 					Map.Entry me = (Map.Entry)i.next();
 					prod = (ProductData)me.getValue();
 					if(prod.getCountry().compareTo(title) == 0){
-			%>
-				<li><input type="submit" name="product" value="<%= prod.getCategory() %>"></li>
-			<%
+						uniqueValues.add(prod.getCategory());
 					}
+				}
+
+				for(Object pcategory : new HashSet(uniqueValues)) {
+			%>
+				<li><input type="submit" name="product" value="<%= (String)pcategory %>"></li>
+			<%
 				}
 			}
 			%>

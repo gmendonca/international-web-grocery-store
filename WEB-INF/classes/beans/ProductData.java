@@ -38,7 +38,7 @@ public class ProductData implements Serializable{
 		return category;
 	}
 	public void setDecription(String desc){
-		this.description = description;
+		this.description = desc;
 
 	}
 
