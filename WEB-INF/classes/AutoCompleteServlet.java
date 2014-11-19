@@ -71,7 +71,7 @@ public class AutoCompleteServlet extends HttpServlet {
 
             if ((targetId != null) && products.containsKey(targetId.trim())) {
                 request.setAttribute("product", products.get(targetId));
-                context.getRequestDispatcher("/CatalogPage").forward(request, response);
+                context.getRequestDispatcher("/catalog.jsp").forward(request, response);
             }
         }
     }

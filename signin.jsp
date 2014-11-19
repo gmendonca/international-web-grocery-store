@@ -11,6 +11,7 @@
 			<h1 align="center">Sign in or Create an User</h1>
 			<form action="country.jsp" target="_parent">
     		Username: <input type="text" name="username"><br>
+    		Password: <input type="text" name="password"><br>
     		<input id="buybutton" type="submit" VALUE="OK">
    			</form>
 		</aside>

@@ -22,19 +22,21 @@
 	HashMap<String,User> clientsHM = null;
 
 	String name = "User";
+	String password = "pass";
 	User u;
 	if(request.getParameter("username") != null){
 		name = request.getParameter("username");
+		password = request.getParameter("password");
 		try{
 			clientsHM = clients.deserializeThis();
 		}catch (Exception e){ }
 
 		if(clientsHM == null) {
-			u = new User(name);
+			u = new User(name, password);
 		} else if(clientsHM.get(name) != null){
 			u = clientsHM.get(name);
 		} else{
-			u = new User(name);
+			u = new User(name, password);
 		}
 
 		session.setAttribute("user", u);

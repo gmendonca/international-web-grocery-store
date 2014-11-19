@@ -6,11 +6,13 @@ import java.io.*;
 
 public class User implements Serializable {
 	private String userID;
+	private String password;
 	private transient ArrayList<Order> orders;
 
 
-	public User(String userID){
+	public User(String userID, String password){
 		this.userID = userID;
+		this.password = password;
 		orders = new ArrayList<Order>();
 	}
 
@@ -24,6 +26,10 @@ public class User implements Serializable {
 
 	public String getUserID(){
 		return userID;
+	}
+
+	public String getPassword(){
+		return password;
 	}
 
 	public void removeOrder(String o){
