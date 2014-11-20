@@ -103,8 +103,6 @@ function parseMessages(responseXML) {
         var products = responseXML.getElementsByTagName("products")[0];
 
         if (products.childNodes.length > 0) {
-            completeTable.setAttribute("bordercolor", "black");
-            completeTable.setAttribute("border", "1");
 
             for (loop = 0; loop < products.childNodes.length; loop++) {
                 var product = products.childNodes[loop];

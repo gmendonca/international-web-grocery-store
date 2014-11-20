@@ -147,14 +147,18 @@ iframe{
 .popupBox {
   position: absolute;
   margin-left: 70px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0,0,0,.15);
+  overflow: hidden;
+  background-color: #fff;
 }
 
 .popupCell {
-   background-color: #fffafa;
+   background-color: #fff;
 }
 
 .popupCell:hover {
-  background-color: #f5ebe9;
+  background-color: #B3B9BF;
 }
 
 .popupItem {
@@ -164,5 +168,5 @@ iframe{
 }
 
 .popupItem:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }

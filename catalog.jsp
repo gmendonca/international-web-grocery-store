@@ -11,15 +11,20 @@
     MainCatalog cl = new MainCatalog();
     try{
           cl.makecatalog();
-        }
-        catch(Exception e){}
+    } catch(Exception e){}
 
     catalogList = cl.showcatalog();
 
 
     request.setAttribute("catalogList", catalogList);
 
-    String product = request.getParameter("product");
+    String product = null;
+    ProductData prodData = null;
+    if(request.getParameter("product") != null){
+         product = request.getParameter("product");
+    } else if(session.getAttribute("search") != null){
+        prodData = (ProductData)session.getAttribute("search");
+    }
 
 %>
 
@@ -35,18 +40,41 @@
                 Set set = catalogList.entrySet();
                 Iterator i = set.iterator();
                 ProductData pd;
-                while(i.hasNext()) {
-                   Map.Entry me = (Map.Entry)i.next();
-                   pd = (ProductData)me.getValue();
-                   if((product.compareTo(pd.getCategory())==0)&&(country.compareTo(pd.getCountry())==0)){
-                                       
-                    %>
-                            <p>Buy: <input type="submit" name="product" value="<%= pd.getDescription()%>">&nbsp&nbsp$<%= pd.getPrice()%></p>
-                    <%
 
-                                            }
-                         }
-                 
+                if(product != null) {
+                    while(i.hasNext()) {
+                       Map.Entry me = (Map.Entry)i.next();
+                       pd = (ProductData)me.getValue();
+                       if((product.compareTo(pd.getCategory())==0)&&(country.compareTo(pd.getCountry())==0)){
+
+                        %>
+                                <p>Buy: <input type="submit" name="product" value="<%= pd.getDescription()%>">&nbsp&nbsp$<%= pd.getPrice()%></p>
+                        <%
+
+                        }
+                    }
+                }
+
+                if(prodData != null) {
+                    %>
+                            <p>Buy: <input type="submit" name="product" value="<%= prodData.getDescription()%>">&nbsp&nbsp$<%= prodData.getPrice()%></p>
+                            <br>
+                            <p> More <%= country %>'s <%= prodData.getCategory() %>: </p>
+                    <%
+                    while(i.hasNext()) {
+                       Map.Entry me = (Map.Entry)i.next();
+                       pd = (ProductData)me.getValue();
+                       if((prodData.getCategory().compareTo(pd.getCategory())==0)
+                       &&(country.compareTo(pd.getCountry())==0)
+                       && (prodData.getDescription().compareTo(pd.getDescription())!=0)){
+
+                        %>
+                                <p>Buy: <input type="submit" name="product" value="<%= pd.getDescription()%>">&nbsp&nbsp$<%= pd.getPrice()%></p>
+                        <%
+
+                        }
+                    }
+                }
             %>
             </form>
         </aside>

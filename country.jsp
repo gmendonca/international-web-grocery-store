@@ -111,7 +111,7 @@
 					</td>
 					<td width="30%">
 						<form name="autofillform" action="autocomplete">
-						<table border="0" cellpadding="5">
+						<table>
 							<tbody>
 							<tr>
 								<td><strong>Search:</strong></td>
@@ -122,7 +122,7 @@
 											</td>
 							</tr>
 							<tr>
-								<td id="auto-row" colspan="2">
+								<td id="auto-row">
 									<table id="complete-table" class="popupBox"></table>
 								</td>
 							</tr>
@@ -186,7 +186,18 @@
 		</nav>
 
 		<aside>
+			<%
+			 	if(request.getAttribute("search") != null){
+					session.setAttribute("search", request.getAttribute("search"));
+			%>
+			<iframe src="catalog.jsp" name="iframe_a"></iframe>
+			<%
+				} else {
+			%>
 			<iframe src="welcome.jsp" name="iframe_a"></iframe>
+			<%
+				}
+			%>
 		</aside>
 	</body>
 	<%

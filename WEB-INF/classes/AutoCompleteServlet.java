@@ -25,6 +25,8 @@ public class AutoCompleteServlet extends HttpServlet {
         String action = request.getParameter("action");
         String targetId = request.getParameter("id");
         StringBuffer sb = new StringBuffer();
+        HttpSession session = request.getSession();
+
 
         if (targetId != null) {
             targetId = targetId.trim().toLowerCase();
@@ -39,13 +41,15 @@ public class AutoCompleteServlet extends HttpServlet {
             if (!targetId.equals("")) {
 
                 Iterator it = products.keySet().iterator();
+                String country = (String)session.getAttribute("title");
 
                 while (it.hasNext()) {
                     String id = (String) it.next();
                     ProductData product = (ProductData) products.get(id);
 
                     if ( // targetId matches product name
-                         product.getDescription().toLowerCase().startsWith(targetId) ){
+                         product.getDescription().toLowerCase().startsWith(targetId)
+                         && product.getCountry().compareTo(country) == 0){
 
                         sb.append("<product>");
                         sb.append("<id>" + product.getProdId() + "</id>");
@@ -70,8 +74,8 @@ public class AutoCompleteServlet extends HttpServlet {
 
 
             if ((targetId != null) && products.containsKey(targetId.trim())) {
-                request.setAttribute("product", products.get(targetId));
-                context.getRequestDispatcher("/catalog.jsp").forward(request, response);
+                request.setAttribute("search", products.get(targetId));
+                context.getRequestDispatcher("/country.jsp").forward(request, response);
             }
         }
     }

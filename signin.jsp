@@ -49,7 +49,7 @@
 					<table width="100%">
 							<tr>
 									<td>
-											<h1><a href="country.jsp"><%= title %></a></h1>
+										<h1><a href="country.jsp"><%= title %></a></h1>
 									</td>
 							</tr>
 					</table>
