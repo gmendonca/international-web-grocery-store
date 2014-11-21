@@ -19,7 +19,7 @@
 			<h1 align="center">The password is wrong:</h1>
 			<form action="country.jsp?title=<%= title %>" target="_parent" align="center">
     		Username: <input type="text" name="username" value="<%= username %>"><br>
-    		Password: <input type="text" name="password"><br>
+    		Password: <input type="password" name="password"><br>
     		<input id="buybutton" type="submit" VALUE="OK">
    			</form>
 			<%
@@ -28,7 +28,7 @@
 			<h1 align="center">Sign in or Create an User</h1>
 			<form action="country.jsp?title=<%= title %>" target="_parent" align="center">
 			Username: <input type="text" name="username"><br>
-			Password: <input type="text" name="password"><br>
+			Password: <input type="password" name="password"><br>
 			<input id="buybutton" type="submit" VALUE="OK">
 			</form>
 			<%
