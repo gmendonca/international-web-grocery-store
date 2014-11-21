@@ -22,11 +22,16 @@
 
 	Clients clients = new Clients();
 	HashMap<String,User> clientsHM = null;
+	Boolean returnUser = false;
+	Boolean userLog = false;
 
 	String name = "User";
 	String password = "pass";
 	User u = null;
-	if(request.getParameter("username") != null){
+	if(session.getAttribute("user") != null){
+		u = (User)session.getAttribute("user");
+		userLog = true;
+	} else if(request.getParameter("username") != null){
 		name = request.getParameter("username");
 		password = request.getParameter("password");
 		try{
@@ -35,16 +40,19 @@
 
 		if(clientsHM == null) {
 			u = new User(name, password);
+			session.setAttribute("user", u);
 		} else if(clientsHM.get(name) != null){
+			returnUser = true;
 			u = clientsHM.get(name);
 			if(u.getPassword().compareTo(password) != 0) {
-				response.sendRedirect("signin.jsp?username=" + name);
+				response.sendRedirect("country.jsp?wrong=" + name);
+			} else {
+				session.setAttribute("user", u);
 			}
 		} else{
 			u = new User(name, password);
+			session.setAttribute("user", u);
 		}
-
-		session.setAttribute("user", u);
 	}
 
 %>
@@ -135,14 +143,14 @@
 							if(session.getAttribute("user") != null) {
 								u = (User)session.getAttribute("user");
 						%>
-						<a href="info.jsp" class="normal" target="iframe_a">Hi, <%= u.getUserID() %></a>
+						Hi, <a href="info.jsp" class="normal" target="iframe_a"><%= u.getUserID() %></a>
 						<%
 							}else {
 						%>
 
-						<a href="signin.jsp" class="normal">Sign In</a>
+						<a href="signin.jsp" class="normal" target="iframe_a">Sign In</a>
 						<span> or </span>
-						<a href="signin.jsp" class="normal">Create an Account</a>
+						<a href="signin.jsp" class="normal" target="iframe_a">Create an Account</a>
 						<%
 							}
 						%>
@@ -192,6 +200,10 @@
 			%>
 			<iframe src="catalog.jsp" name="iframe_a"></iframe>
 			<%
+				} else if(request.getParameter("wrong") != null){
+			%>
+			<iframe src="signin.jsp?username=<%= request.getParameter("wrong") %>" name="iframe_a"></iframe>
+			<%
 				} else {
 			%>
 			<iframe src="welcome.jsp" name="iframe_a"></iframe>
@@ -201,10 +213,12 @@
 		</aside>
 	</body>
 	<%
-		if(u != null) {
-			clients.setNewClient(u);
-			session.setAttribute("user", u);
-			clients.serializeThis();
+		if(!userLog){
+			if( (!returnUser && u != null) || (returnUser && request.getParameter("wrong") != null)) {
+				clients.setNewClient(u);
+				session.setAttribute("user", u);
+				clients.serializeThis();
+			}
 		}
 	%>
 <html>
