@@ -9,6 +9,10 @@
 <%@ page import="beans.Clients" %>
 
 <%
+	if(request.getParameter("logout") != null){
+		session.removeAttribute("user");
+	}
+	
 	String title = "Country";
 	if(request.getParameter("title") != null){
 		title = request.getParameter("title");
@@ -143,7 +147,7 @@
 							if(session.getAttribute("user") != null) {
 								u = (User)session.getAttribute("user");
 						%>
-						Hi, <a href="info.jsp" class="normal" target="iframe_a"><%= u.getUserID() %></a>
+						Hi, <a href="info.jsp" class="normal" target="iframe_a"><%= u.getUserID() %></a> <a href="country.jsp?logout=ok" class="normal">(Logout)</a>
 						<%
 							}else {
 						%>
