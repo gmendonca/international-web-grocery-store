@@ -12,7 +12,7 @@
 	if(request.getParameter("logout") != null){
 		session.removeAttribute("user");
 	}
-	
+
 	String title = "Country";
 	if(request.getParameter("title") != null){
 		title = request.getParameter("title");
