@@ -7,6 +7,8 @@
 
 <%
     HashMap<String,ProductData> catalogList;
+    String title = (String)session.getAttribute("title");
+
 
     MainCatalog cl = new MainCatalog();
     try{
@@ -34,7 +36,8 @@
     </head>
     <body>
         <aside>
-            <form action="cart.jsp">
+            <form action="country.jsp?title=<%= title %>" target="_parent" align="center">
+
             <%
                 String country = (String)session.getAttribute("title");
                 Set set = catalogList.entrySet();

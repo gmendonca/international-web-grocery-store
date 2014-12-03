@@ -6,6 +6,7 @@
 <%@ page import="beans.User" %>
 
 <%
+    String title = (String)session.getAttribute("title");
     Cart c = new Cart();
     if(session.getAttribute("cart") != null) c = (Cart)session.getAttribute("cart");
     String product;
@@ -25,8 +26,7 @@
     <body>
         <aside>
             <h1 align="center">Cart</h1>
-            <form action="cart.jsp">
-            <%
+            <form action="country.jsp?title=<%= title %>" target="_parent" align="center">            <%
                 if(c.getProducts().isEmpty()){
             %>
                 <p> Your Cart is Empty! </p>
