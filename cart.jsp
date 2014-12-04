@@ -49,8 +49,8 @@
                     }
             %>
             </form>
-            <form action="checkout.jsp">
-                <input type="submit" value="Checkout">
+            <form action="country.jsp?title=<%= title %>" target="_parent" align="center">
+                <input type="submit" name="checkout" value="Checkout">
             </form>
             <%
                 }

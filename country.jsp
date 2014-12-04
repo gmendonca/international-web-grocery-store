@@ -26,6 +26,7 @@
 
 	if(request.getParameter("logout") != null){
 		session.removeAttribute("user");
+		session.removeAttribute("guest");
 	}
 
 	String title = "Country";
@@ -50,7 +51,8 @@
 	String password = "pass";
 	User u = null;
 
-	if(request.getParameter("guest") != null && request.getParameter("guest").compareTo("Guest") == 0){
+	if(request.getParameter("guest") != null){
+		session.setAttribute("guest", "guest");
 		session.removeAttribute("user");
 	} else if(session.getAttribute("user") != null){
 		u = (User)session.getAttribute("user");
@@ -132,16 +134,23 @@
 												if(session.getAttribute("cart") != null){
 												  c = (Cart)session.getAttribute("cart");
 												  count = c.getProducts().size();
-											}	else { %>
-												<a href="cart.jsp" target="iframe_a"><img src="img/emptycrt.jpg" alt="cart" width="80" height="80"/></a>
-										<%	}
+												}  else {
 											%>
-											<% if(count == 0) {%>
-											<a href="cart.jsp" target="iframe_a"><img src="img/emptycrt.jpg" alt="cart" width="80" height="80"/></a>
-											<%} else { %>
-
-											<a href="cart.jsp" target="iframe_a"><img src="img/crtfull.jpg" alt="cart" width="80" height="80"/></a>
-											<% } %>
+												<a href="cart.jsp" target="iframe_a"><img src="img/emptycrt.jpg" alt="cart" width="80" height="80"/></a>
+											<%
+												}
+											%>
+											<%
+												if(count == 0) {
+											%>
+												<a href="cart.jsp" target="iframe_a"><img src="img/emptycrt.jpg" alt="cart" width="80" height="80"/></a>
+											<%
+												} else {
+											%>
+												<a href="cart.jsp" target="iframe_a"><img src="img/crtfull.jpg" alt="cart" width="80" height="80"/></a>
+											<%
+												}
+											%>
 									</td>
 							</tr>
 					</table>
@@ -180,7 +189,7 @@
 					</td>
 					<td width="30%">
 						<%
-							if(request.getParameter("guest") != null && request.getParameter("guest").compareTo("Guest") == 0) {
+							if(request.getParameter("guest") != null || session.getAttribute("guest") != null) {
 						%>
 							Hi, <a href="info.jsp" class="normal" target="iframe_a">Guest</a> <a href="country.jsp?logout=ok" class="normal">(Logout)</a>
 						<%
@@ -251,6 +260,16 @@
 			%>
 				<iframe src="signin.jsp?username=<%= request.getParameter("wrong") %>" name="iframe_a"></iframe>
 			<%
+				} else if(request.getParameter("checkout") != null) {
+					if(session.getAttribute("guest") != null || session.getAttribute("user") != null) {
+			%>
+				<iframe src="checkout.jsp" name="iframe_a"></iframe>
+			<%
+					} else {
+			%>
+				<iframe src="signin.jsp" name="iframe_a"></iframe>
+			<%
+					}
 				} else {
 			%>
 				<iframe src="welcome.jsp" name="iframe_a"></iframe>
