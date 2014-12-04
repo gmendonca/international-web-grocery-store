@@ -34,6 +34,7 @@
     </head>
     <body>
         <aside>
+            <h1 align="center"><%= product %></h1>
             <form action="cart.jsp">
             <%
                 String country = (String)session.getAttribute("title");

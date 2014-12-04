@@ -32,12 +32,17 @@
 	String name = "User";
 	String password = "pass";
 	User u = null;
-	if(session.getAttribute("user") != null){
+	if(request.getParameter("guest") != null && request.getParameter("guest").compareTo("Guest") == 0){
+		session.removeAttribute("user");
+	} else if(session.getAttribute("user") != null){
 		u = (User)session.getAttribute("user");
 		userLog = true;
 	} else if(request.getParameter("username") != null){
-		name = request.getParameter("username");
-		password = request.getParameter("password");
+		name = request.getParameter("username").trim();
+		password = request.getParameter("password").trim();
+		if(name.length() == 0 || password.length() == 0){
+			response.sendRedirect("country.jsp?wrong=" + name);
+		}
 		try{
 			clientsHM = clients.deserializeThis();
 		}catch (Exception e){ }
@@ -144,14 +149,17 @@
 					</td>
 					<td width="30%">
 						<%
-							if(session.getAttribute("user") != null) {
+							if(request.getParameter("guest") != null && request.getParameter("guest").compareTo("Guest") == 0) {
+						%>
+							Hi, <a href="info.jsp" class="normal" target="iframe_a">Guest</a> <a href="country.jsp?logout=ok" class="normal">(Logout)</a>
+						<%
+							} else if(session.getAttribute("user") != null) {
 								u = (User)session.getAttribute("user");
 						%>
 						Hi, <a href="info.jsp" class="normal" target="iframe_a"><%= u.getUserID() %></a> <a href="country.jsp?logout=ok" class="normal">(Logout)</a>
 						<%
-							}else {
+							} else {
 						%>
-
 						<a href="signin.jsp" class="normal" target="iframe_a">Sign In</a>
 						<span> or </span>
 						<a href="signin.jsp" class="normal" target="iframe_a">Create an Account</a>

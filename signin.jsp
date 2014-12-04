@@ -21,6 +21,8 @@
     		Username: <input type="text" name="username" value="<%= username %>"><br>
     		Password: <input type="password" name="password"><br>
     		<input id="buybutton" type="submit" VALUE="OK">
+			<br><br>Or login as a
+			<input id="buybutton" type="submit" VALUE="Guest">
    			</form>
 			<%
 				} else {
@@ -30,6 +32,8 @@
 			Username: <input type="text" name="username"><br>
 			Password: <input type="password" name="password"><br>
 			<input id="buybutton" type="submit" VALUE="OK">
+			<br><br>Or login as a
+			<input id="buybutton" type="submit" name="guest" VALUE="Guest">
 			</form>
 			<%
 				}
