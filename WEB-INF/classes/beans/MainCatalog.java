@@ -19,6 +19,14 @@ public class MainCatalog {
   catalog.put("br007",new ProductData("br007","Cereals","Kimilho Flocão - Yoki 500 grams","Brazil",3.99));
   catalog.put("br008",new ProductData("br008","Cereals","Milharina Quaker - 500g ","Brazil",3.49));
   catalog.put("br009",new ProductData("br009","Cereals","Trigo para Kibe Yoki - 500g ","Brazil",3.49));
+  catalog.put("br010",new ProductData("br010","Frozen Foods","Bacalhau - Codfish - KIT WITH 3 PACKAGES","Brazil",24.99));
+  catalog.put("br011",new ProductData("br011","Frozen Foods","Feijoada Pronta Congelada - KIT WITH 4","Brazil",39.90));
+  catalog.put("br012",new ProductData("br012","Frozen Foods","Catupiry - KIT WITH 2 of 250g ","Brazil",19.90));
+  catalog.put("br013",new ProductData("br013","Sauces and Oils","Azeite Victor Guedes - 946ml ","Brazil",14.90));
+  catalog.put("br014",new ProductData("br014","Sauces and Oils","Azeite de Dende - Talisca 140 ml","Brazil",5.90));
+  catalog.put("br015",new ProductData("br015","Sauces and Oils","Molho de Tomate Pomarola ou Tarantella - 340G ","Brazil",7.90));
+  catalog.put("br014",new ProductData("br016","Snacks","Guava Paste Light ","Brazil",7.99));
+
   catalog.put("ch001",new ProductData("ch001","Beans","Soy beans","China",2.95));
   catalog.put("ch002",new ProductData("ch002","Beans","Black beans","China",3.45));
   catalog.put("ch003",new ProductData("ch003","Beans","Split Moong Bean","China", 2.65));
@@ -28,6 +36,14 @@ public class MainCatalog {
   catalog.put("ch007",new ProductData("ch007","Cooking-Ingredients","Chinese Five Spice Powder","China",1.79));
   catalog.put("ch008",new ProductData("ch008","Cooking-Ingredients","Minced Garlic Paste","China",3.15));
   catalog.put("ch009",new ProductData("ch009","Cooking-Ingredients","Chilli Powder (Extra Hot)","China",1.25));
+  catalog.put("ch010",new ProductData("ch010","Dried Foods","Deep sea dried scallops 8oz.","China", 39.65));
+  catalog.put("ch011",new ProductData("ch011","Dried Foods","Dried small shrimp","China", 3.65));
+  catalog.put("ch012",new ProductData("ch012","Dried Foods","Dried Oyester 8oz.","China", 29.65));
+  catalog.put("ch013",new ProductData("ch013","Canned Foods","555 Brand Fried Sardines in Soybean Oil with Black Beans 5.5 Oz","China", 1.99));
+  catalog.put("ch014",new ProductData("ch014","Canned Foods","Aroy-D Pineapple Chunks","China", 3.65));
+  catalog.put("ch015",new ProductData("ch015","Rice and Noodles","Assi 08110K Korean Dried Noodles 4 Lbs","China", 7.99));
+  catalog.put("ch016",new ProductData("ch016","Rice and Noodles","Asian Best Jasmine Rice 5 Lbs","China", 9.99));
+
   catalog.put("in001",new ProductData("in001","Beans","Kabuli Chana 4lb","India",5.99));
   catalog.put("in002",new ProductData("in002","Beans","Kidney Beans Small 2lb","India",3.99));
   catalog.put("in003",new ProductData("in003","Beans","Moong Beans 2lb","India",3.45));
@@ -37,6 +53,16 @@ public class MainCatalog {
   catalog.put("in007",new ProductData("in007","Dals","Toor Dal 2lb","India",3.99));
   catalog.put("in008",new ProductData("in008","Dals","Masoor Dal 2lb","India",3.49));
   catalog.put("in009",new ProductData("in009","Dals","Urad Dal 2lb","India",3.99));
+  catalog.put("in010",new ProductData("in010","Flours and Rice","Aashirvaad Atta 20Lbs","India",11.99));
+  catalog.put("in011",new ProductData("in011","Flours and Rice","Sona Masoori Rice","India",17.99));
+  catalog.put("in012",new ProductData("in012","Flours and Rice","Sooji Rava 2.2lbs","India",3.99));
+  catalog.put("in013",new ProductData("in013","Frozen Food","Frozen Parathas","India",5.99));
+  catalog.put("in014",new ProductData("in014","Frozen Food","Frozen Samosa","India",3.99));
+  catalog.put("in015",new ProductData("in015","Pickles","Mango Pickle","India",3.99));
+  catalog.put("in016",new ProductData("in016","Pickles","Lime Pickle","India",3.99));
+  catalog.put("in017",new ProductData("in017","Spices","Garam Masala","India",3.99));
+  catalog.put("in018",new ProductData("in018","Spices","Everest Complete Masalas Pack","India",9.99));
+
 
 
       FileOutputStream fos = new FileOutputStream("itemsfile.ser");
