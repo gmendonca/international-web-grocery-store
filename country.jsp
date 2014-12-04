@@ -147,7 +147,8 @@
 											<%
 												} else {
 											%>
-												<a href="cart.jsp" target="iframe_a"><img src="img/crtfull.jpg" alt="cart" width="80" height="80"/></a>
+												
+												<a href="cart.jsp" target="iframe_a"><img src="img/crtfull.jpg" alt="cart" width="80" height="80"/></a><%=count%>
 											<%
 												}
 											%>
