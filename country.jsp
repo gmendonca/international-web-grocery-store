@@ -7,8 +7,23 @@
 <%@ page import="beans.MainCatalog" %>
 <%@ page import="beans.ProductData" %>
 <%@ page import="beans.Clients" %>
+<%@ page import="beans.Cart"%>
 
 <%
+	Cart cart = new Cart();
+	if(session.getAttribute("cart") != null) cart = (Cart)session.getAttribute("cart");
+    String product;
+    if(request.getParameter("product") != null) {
+        product = request.getParameter("product");
+        cart.setProduct(product);
+        session.setAttribute("cart", cart);
+    }
+    if(request.getParameter("remove") != null) {
+        product = request.getParameter("remove");
+        cart.removeProduct(product);
+        session.setAttribute("cart", cart);
+    }
+
 	if(request.getParameter("logout") != null){
 		session.removeAttribute("user");
 	}
@@ -29,9 +44,12 @@
 	Boolean returnUser = false;
 	Boolean userLog = false;
 
+	Integer count= 0;
+
 	String name = "User";
 	String password = "pass";
 	User u = null;
+
 	if(request.getParameter("guest") != null && request.getParameter("guest").compareTo("Guest") == 0){
 		session.removeAttribute("user");
 	} else if(session.getAttribute("user") != null){
@@ -110,7 +128,20 @@
 											<h1><a href="country.jsp"><%= title %></a></h1>
 									</td>
 									<td width="25%">
-											<a href="cart.jsp" target="iframe_a"><img src="img/cart.jpg" alt="cart" width="80" height="80"/></a>
+											<%    Cart c = new Cart();
+												if(session.getAttribute("cart") != null){
+												  c = (Cart)session.getAttribute("cart");
+												  count = c.getProducts().size();
+											}	else { %>
+												<a href="cart.jsp" target="iframe_a"><img src="img/emptycrt.jpg" alt="cart" width="80" height="80"/></a>
+										<%	}
+											%>
+											<% if(count == 0) {%>
+											<a href="cart.jsp" target="iframe_a"><img src="img/emptycrt.jpg" alt="cart" width="80" height="80"/></a>
+											<%} else { %>
+
+											<a href="cart.jsp" target="iframe_a"><img src="img/crtfull.jpg" alt="cart" width="80" height="80"/></a>
+											<% } %>
 									</td>
 							</tr>
 					</table>
@@ -207,7 +238,11 @@
 
 		<aside>
 			<%
-			 	if(request.getAttribute("search") != null){
+			 	if(request.getParameter("product") != null || request.getParameter("remove") != null){
+			 %>
+			 	<iframe src="cart.jsp" name="iframe_a"></iframe>
+			 <%
+			 	} else if(request.getAttribute("search") != null){
 					session.setAttribute("search", request.getAttribute("search"));
 			%>
 			<iframe src="catalog.jsp" name="iframe_a"></iframe>
