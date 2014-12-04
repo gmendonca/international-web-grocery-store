@@ -36,7 +36,17 @@
     </head>
     <body>
         <aside>
+            <%
+                if(product == null){
+            %>
+            <h1 align="center"><%= prodData.getCategory() %></h1>
+            <%
+                } else {
+            %>
             <h1 align="center"><%= product %></h1>
+            <%
+                }
+            %>
             <form action="country.jsp?title=<%= title %>" target="_parent" align="center">
             <%
                 String country = (String)session.getAttribute("title");

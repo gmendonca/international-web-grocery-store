@@ -38,6 +38,7 @@
 	if(session.getAttribute("title") != null){
 		title = (String)session.getAttribute("title");
 	}
+	
 	MainCatalog maincatalog = new MainCatalog();
 
 	Clients clients = new Clients();
@@ -45,7 +46,7 @@
 	Boolean returnUser = false;
 	Boolean userLog = false;
 
-	Integer count= 0;
+	Integer count = 0;
 
 	String name = "User";
 	String password = "pass";
@@ -133,22 +134,21 @@
 											<%    Cart c = new Cart();
 												if(session.getAttribute("cart") != null){
 												  c = (Cart)session.getAttribute("cart");
-												  count = c.getProducts().size();
-												}  else {
-											%>
-												<a href="cart.jsp" target="iframe_a"><img src="img/emptycrt.jpg" alt="cart" width="80" height="80"/></a>
-											<%
+												  Set pros = c.getProducts().entrySet();
+												  Iterator it = pros.iterator();
+												  while(it.hasNext()){
+													count += (Integer)((Map.Entry)it.next()).getValue();
+												  }
 												}
-											%>
-											<%
+
 												if(count == 0) {
 											%>
 												<a href="cart.jsp" target="iframe_a"><img src="img/emptycrt.jpg" alt="cart" width="80" height="80"/></a>
 											<%
 												} else {
 											%>
-												
-												<a href="cart.jsp" target="iframe_a"><img src="img/crtfull.jpg" alt="cart" width="80" height="80"/></a><%=count%>
+
+												<a href="cart.jsp" target="iframe_a"><img src="img/crtfull.jpg" alt="cart" width="80" height="80"/></a><%= count %>
 											<%
 												}
 											%>

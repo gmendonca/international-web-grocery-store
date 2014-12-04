@@ -94,6 +94,8 @@ nav{
     box-shadow: 0 0 10px rgba(0,0,0,.15);
     overflow: hidden;
     width: 200px;
+    position: absolute;
+    height: 100%;
 }
 
 nav ul{
