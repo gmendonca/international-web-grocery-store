@@ -227,7 +227,7 @@
 
 				for(Object pcategory : new HashSet(uniqueValues)) {
 			%>
-				<li><input type="submit" name="product" value="<%= (String)pcategory %>"></li>
+				<li><button type="submit" name="product" value="<%= (String)pcategory %>"><%= (String)pcategory %></button></li>
 			<%
 				}
 			}
@@ -245,15 +245,15 @@
 			 	} else if(request.getAttribute("search") != null){
 					session.setAttribute("search", request.getAttribute("search"));
 			%>
-			<iframe src="catalog.jsp" name="iframe_a"></iframe>
+				<iframe src="catalog.jsp" name="iframe_a"></iframe>
 			<%
 				} else if(request.getParameter("wrong") != null){
 			%>
-			<iframe src="signin.jsp?username=<%= request.getParameter("wrong") %>" name="iframe_a"></iframe>
+				<iframe src="signin.jsp?username=<%= request.getParameter("wrong") %>" name="iframe_a"></iframe>
 			<%
 				} else {
 			%>
-			<iframe src="welcome.jsp" name="iframe_a"></iframe>
+				<iframe src="welcome.jsp" name="iframe_a"></iframe>
 			<%
 				}
 			%>
